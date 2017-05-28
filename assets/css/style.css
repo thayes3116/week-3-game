@@ -1,0 +1,29 @@
+body {
+	background: url(../images/MontyPythonBackground.jpg);
+	background-size: cover;
+	font-weight: bold;
+	color:black;
+}
+.chardiv{
+	margin:10px;
+	width: 200px;
+	border:1px solid black;
+	background-color: white;
+}
+.charimg{
+	height:200px;
+	width: 198px;
+	opacity:0.90;
+	margin-left: -15px;
+}
+
+h1 {
+	text-align: center;
+	background-color: white;
+}
+.charname {
+	text-align: center;
+}
+.charhp {
+	text-align: center;
+}
