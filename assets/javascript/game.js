@@ -2,12 +2,15 @@ $( document ).ready(function() {
     console.log( "ready!");
 
 var characterpick = true,
-	attackable = false,
+	attackable = 0,
 	arthurval = 0,
 	rabbitval = 0,
 	lancelotval = 0,
 	robinval = 0,
 	attackcounter = 0,
+	attackerlife = 1,
+	defendlife =1,
+	attackerdamage = 0,
 	enemiesdefeated = 0,
 	attacker = [],
 	defend = [],
@@ -60,7 +63,9 @@ var characterpick = true,
 				//move character attribute to defend array
 				defend = Array.from(characters.c1)
 				//enable attack button
-				attackable === true;
+				attackable++;
+				console.log("attackable " + attackable)
+				$('#attackresult').html("Ready for attack")
 				//dont allow other charactes to be picked as 1st defender
 				rabbitval++;
 				lancelotval++;
@@ -99,7 +104,9 @@ var characterpick = true,
 				//move character attribute to defend array
 				defend = Array.from(characters.c2);
 				//enable attack button				
-				attackable=true;
+				attackable++;
+				console.log("attackable " + attackable)
+				$('#attackresult').html("Ready for attack")
 				//dont allow other charactes to be picked as 1st defender
 				arthurval++;
 				lancelotval++;
@@ -140,7 +147,9 @@ var characterpick = true,
 				//move character attribute to defend array
 				defend = Array.from(characters.c3)
 				//enable attack button
-				attackable = true;
+				attackable++;
+				console.log("attackable " + attackable)
+				$('#attackresult').html("Ready for attack")
 				//dont allow other charactes to be picked as 1st defender
 				arthurval++;
 				rabbitval++;
@@ -179,7 +188,9 @@ var characterpick = true,
 					//move character attribute to defend array;
 					defend = Array.from(characters.c4)
 					//enable attack button
-					attackable = true;
+					attackable++;
+					console.log("attackable " + attackable)
+					$('#attackresult').html("Ready for attack")
 					//dont allow other charactes to be picked as 1st defender
 					arthurval++;
 					rabbitval++;
@@ -191,27 +202,27 @@ var characterpick = true,
 		
 		//If you push the attack button
 		$('.attackbtn').on('click', function(){
+			if(attackable === 1){
 			//track number of attacks
 			attackcounter++
 			console.log(attackcounter)
 			//create new var to track increasing attackerdamage
-			var attackerdamage = attacker[1]*attackcounter
+			attackerdamage = attacker[1]*attackcounter
 			//log defender return damage to attacker life
-			var attackerlife = attacker[3]-defend[2]
+			 attackerlife = attacker[3]-defend[2]
 			//reset attacker life to post-attack level
-				attacker[3] = attackerlife
+			attacker[3] = attackerlife
 			//display attacker hp on html
-				$(".attackhp").html(attackerlife)
+			$(".attackhp").html(attackerlife)
 			//log attacker damage to defender lfe	
-			var defendlife = defend[3]-attackerdamage
+			 var defendlife = defend[3]-attackerdamage
 			//reset defender life at post-attack level
-				defend[3] = defendlife
+			defend[3] = defendlife
 			//display defender life on html
 				$(".defendhp").html(defendlife)
-				
-			if(attackable = true){
-					//display para describing battle		
-				
+
+				if(defendlife > 0 && attackerlife > 0){
+					//display para discribing battle		
 			$('#attackresult').html('You attacked ' + defend[0] + 
 							' for ' + attackerdamage +  ' damage and '+
 							 defend[0] + ' returned ' + 
@@ -221,21 +232,23 @@ var characterpick = true,
 							 defend[0] + ' returned ' + 
 							 defend[2] + ' damage back to you.')
 				}
-				else{
-					$('#attackresult').html("Not ready for attack")
-					this.disabled = true
-				}
+				console.log("attackerdamage " + attackerdamage)
+				console.log("attackerlife " + attackerlife)
+				console.log("defendlife " + defendlife)
+				
+		
 				//if your character's life <= 0
 				if(attackerlife <= 0){
+					attackable--
 					//dispay para saying you've lost
 					$('#attackresult').html("You have been defeated. The grail will never be found now. GAME OVER!")
-					attackable = false
-					}
+					
 
 					
-				 if(defendlife <=0){
-				 	attackable = false
+
+				} if(defendlife <=0){
 					enemiesdefeated++
+					attackable--
 					//display para 
 					$('#attackresult').html("You have defeated " + defend[0] + "! Choose another defender.")
 					//reset the defender array
@@ -247,18 +260,22 @@ var characterpick = true,
 					rabbitval--;
 					lancelotval--;
 					robinval--;
-				}	
+				} 	
 				if (enemiesdefeated === 3){
+					attackable--
 					//displpay para for win
 					$('#attackresult').html("Congratulations!! You have defeated all the enemies. The grail is yours!!!")
-					attackable = false
+					
 				}
-					console.log(attackerdamage)
-					console.log(attackerlife)
-					console.log(defendlife)
+
+
+			}
+			 if(attackable === 0){
+
+					$('#attackresult').html("Not ready for attack")}
+});			
 		
-});	
-					$('.restartbtn').click(function() {
+				$('.restartbtn').click(function() {
     					location.reload();
 });
 		});	
