@@ -1,29 +1,64 @@
 body {
-	background: url(../images/montypythoncover.jpg);
+	background: url(../images/goodback.jpeg);
 	background-size: cover;
 	font-weight: bold;
 	color:black;
 }
 .chardiv{
 	margin:10px;
-	width: 200px;
-	border:1px solid black;
+	width: 150px;
+	border:1px solid blue;
 	background-color: white;
 }
+.yourchar{
+	border:1px solid green;
+}
+.yourchar p{
+	color:green;
+}	
+.yourchar h6{
+	color:green;
+}	
+.enemiesclass{
+	border:1px solid red
+}
+.enemiesclass p{
+	color: red;
+}
+.enemiesclass h6{
+	color: red;
+}
+.defending{
+	border:1px solid black
+}
+.defending p{
+	color:black;
+}
+.defending h6{
+	color:black;
+}
 .charimg{
-	height:200px;
-	width: 198px;
+	height:150px;
+	width: 148px;
 	opacity:0.90;
 	margin-left: -15px;
 }
 
-h1 {
+h2 {
 	text-align: center;
-	background-color: white;
+
 }
 .charname {
 	text-align: center;
+	font-weight: bold;
+	color:blue;
 }
 .charhp {
 	text-align: center;
+	font-weight: bold;
+	color:blue;
+	padding-top: 10px;
+}
+.grailbtn {
+	margin-left: 300px;
 }

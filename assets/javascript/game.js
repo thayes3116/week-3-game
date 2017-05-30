@@ -46,9 +46,9 @@ var characterpick = true,
 				console.log("characterpick " + characterpick);
 
 				//move other 3 characters to enemies row
-				$('.Char2').appendTo('.enemies')
-				$('.Char3').appendTo('.enemies')
-				$('.Char4').appendTo('.enemies')
+				$('.Char2').appendTo('.enemies').addClass("enemiesclass")
+				$('.Char3').appendTo('.enemies').addClass("enemiesclass")
+				$('.Char4').appendTo('.enemies').addClass("enemiesclass")
 
 	}
 			//if a different character is picked as your character than  
@@ -88,9 +88,9 @@ var characterpick = true,
 				characterpick = false;
 				console.log("characterpick " + characterpick);
 			//move other 3 characters to enemies row
-				$('.Char1').appendTo('.enemies')
-				$('.Char3').appendTo('.enemies')
-				$('.Char4').appendTo('.enemies')
+				$('.Char1').appendTo('.enemies').addClass("enemiesclass")
+				$('.Char3').appendTo('.enemies').addClass("enemiesclass")
+				$('.Char4').appendTo('.enemies').addClass("enemiesclass")
 	}
 			//if a different character is picked as your character than  
 			// this character becomes the defender
@@ -131,9 +131,9 @@ var characterpick = true,
 				characterpick = false;
 				console.log("characterpick " + characterpick);
 				//move other 3 characters to enemies row
-				$('.Char1').appendTo('.enemies')
-				$('.Char2').appendTo('.enemies')
-				$('.Char4').appendTo('.enemies')
+				$('.Char1').appendTo('.enemies').addClass("enemiesclass")
+				$('.Char2').appendTo('.enemies').addClass("enemiesclass")
+				$('.Char4').appendTo('.enemies').addClass("enemiesclass")
 	}
 		//if a different character is picked as your character than  
 		// this character becomes the defender
@@ -172,9 +172,9 @@ var characterpick = true,
 				characterpick = false;
 				console.log("characterpick " + characterpick);
 				//move other 3 characters to enemies row
-			$('.Char1').appendTo('.enemies')
-			$('.Char2').appendTo('.enemies')
-			$('.Char3').appendTo('.enemies')
+			$('.Char1').appendTo('.enemies').addClass("enemiesclass")
+			$('.Char2').appendTo('.enemies').addClass("enemiesclass")
+			$('.Char3').appendTo('.enemies').addClass("enemiesclass")
 	}
 		//if a different character is picked as your character than  
 		// this character becomes the defender
