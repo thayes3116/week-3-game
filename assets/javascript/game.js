@@ -1,5 +1,8 @@
 $( document ).ready(function() {
     console.log( "ready!");
+    var theme = document.createElement("audio");
+      theme.setAttribute("src", "assets/audio/grailtheme.mp3");
+      theme.play();
 
 var characterpick = true,
 	attackable = 0,
@@ -14,20 +17,16 @@ var characterpick = true,
 	enemiesdefeated = 0,
 	attacker = [],
 	defend = [],
-	characters = { 	c1: ["King Arthur", 10, 10 ,20],
-				   	c2: ["Killer Rabbit", 10, 10 , 120],
-				   	c3: ["Sir Lancelot", 10, 10, 120],
-				   	c4: ["Sir Robin", 10, 10, 120]
+	characters = { 	c1: ["King Arthur", 10, 25,150],
+				   	c2: ["Killer Rabbit", 10, 20, 180],
+				   	c3: ["Sir Lancelot", 15, 15, 140],
+				   	c4: ["Sir Robin", 30, 10, 115]
 				   };
-
-	
-
-
 
 			console.log("characterpick " + characterpick)
 			console.log("attackable " + attackable)
 			
-		
+			$(".grailbtn").hide();
 		//to pick your character and move other 3 characters to enemy
 
 			$('.Char1').on('click',function(){
@@ -237,16 +236,10 @@ var characterpick = true,
 				console.log("defendlife " + defendlife)
 				
 		
-				//if your character's life <= 0
-				if(attackerlife <= 0){
-					attackable--
-					//dispay para saying you've lost
-					$('#attackresult').html("You have been defeated. The grail will never be found now. GAME OVER!")
+				
 					
-
-					
-
-				} if(defendlife <=0){
+}
+				 if(defendlife <=0){
 					enemiesdefeated++
 					attackable--
 					//display para 
@@ -261,20 +254,31 @@ var characterpick = true,
 					lancelotval--;
 					robinval--;
 				} 	
-				if (enemiesdefeated === 3){
+				if (enemiesdefeated === 3 && attackerlife > 0){
 					attackable--
 					//displpay para for win
 					$('#attackresult').html("Congratulations!! You have defeated all the enemies. The grail is yours!!!")
-					
+					$(".grailbtn").show();
 				}
-
+				//if your character's life <= 0
+				if(attackerlife <= 0){
+					attackable--
+					//dispay para saying you've lost
+					$('#attackresult').html("You have been defeated. Your mother was a hamster and your father smelt of elderberries! The grail will never be found now. GAME OVER!")
+					
 
 			}
-			 if(attackable === 0){
+			 if(attackable <= 0){
 
-					$('#attackresult').html("Not ready for attack")}
+					//$('#attackresult').html("Not ready for attack")
+				}
 });			
-		
+				$('.grailbtn').on('click', function(){
+						theme.pause();
+					var grail = document.createElement("audio");
+      					grail.setAttribute("src", "assets/audio/always.mp3");
+      					grail.play();
+});
 				$('.restartbtn').click(function() {
     					location.reload();
 });
